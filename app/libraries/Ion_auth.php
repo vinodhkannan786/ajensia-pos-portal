@@ -10,6 +10,14 @@ class Ion_auth
 
     protected $status;
 
+    public function restlogin($username, $password) {
+        if ($this->ion_auth->login($username, $password)) {
+              return true;
+        }
+        return false;
+   }
+
+
     public function __construct()
     {
         $this->load->config('ion_auth', true);

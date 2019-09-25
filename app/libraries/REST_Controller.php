@@ -1262,7 +1262,9 @@ abstract class REST_Controller extends \CI_Controller
         $this->response([
             $this->config->item('rest_status_field_name')  => false,
             $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_unauthorized'),
-        ], self::HTTP_UNAUTHORIZED);
+        ], self::HTTP_FORBIDDEN);
+        $this->is_valid_request = false;
+	
     }
 
     /**
@@ -1588,7 +1590,6 @@ abstract class REST_Controller extends \CI_Controller
         if (is_callable([$auth_library_class, $auth_library_function]) === false) {
             $this->load->library($auth_library_class);
         }
-
         return $this->{$auth_library_class}->$auth_library_function($username, $password);
     }
 

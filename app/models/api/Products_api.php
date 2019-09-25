@@ -15,12 +15,12 @@ class Products_api extends CI_Model
             $this->db->where('warehouse_id', $filters['warehouse_id']);
         }
 		
-        $this->db->select('name');
+        $this->db->select('sp.name');
 	$this->db->select('swp.quantity');
 	$this->db->select('w.name as warehouse');
         $this->db->from('products as sp');	
-	$this->db->join('warehouses_products as swp', 'swp.product_id = sp.id');
-	$this->db->join('warehouses as w', 'w.id = swp.warehouse_id');
+	$this->db->join('warehouses_products as swp', 'swp.product_id = sp.id', 'left');
+	$this->db->join('warehouses as w', 'w.id = swp.warehouse_id', 'left');
 
         return $this->db->get()->result_array();		
     }
