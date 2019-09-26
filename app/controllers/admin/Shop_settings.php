@@ -632,7 +632,7 @@ class Shop_settings extends MY_Controller
             $fields        = ['version' => $shop_settings->version, 'code' => $shop_settings->purchase_code, 'username' => $shop_settings->envato_username, 'site' => base_url()];
             $this->load->helper('update');
             $protocol                    = is_https() ? 'https://' : 'http://';
-            $updates                     = get_remote_contents($protocol . 'api.tecdiary.com/v1/update/', $fields);
+            $updates                     = get_remote_contents($protocol . 'api.ajensia.com/v1/update/', $fields);
             $this->data['shop_settings'] = $shop_settings;
             $this->data['updates']       = json_decode($updates);
             $bc                          = [['link' => base_url(), 'page' => lang('home')], ['link' => '#', 'page' => lang('updates')]];

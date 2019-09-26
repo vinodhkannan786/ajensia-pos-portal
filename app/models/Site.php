@@ -1301,4 +1301,16 @@ class Site extends CI_Model
         }
         return 0;
     }
+	
+	public function getPushNotificationSubscribers($warehouse_id = null) {
+        $this->db->select('ds.username');
+		$this->db->select('device_key');
+		$this->db->from('dukaan_subscriber ds');
+		$this->db->join('sma_users as su', 'ds.username = su.username');
+		$this->db->join('sma_groups as sg', 'sg.id = su.group_id');
+		$this->db->where_in('sg.name', ['owner', 'admin', 'sales']);
+		$this->db->where('su.warehouse_id', $warehouse_id);
+		$this->db->or_where('su.warehouse_id is null');
+		return $this->db->get()->result_array();		
+	}
 }

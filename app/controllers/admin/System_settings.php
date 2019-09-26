@@ -2110,7 +2110,7 @@ class system_settings extends MY_Controller
                 // 'allow_reg' => $this->input->post('allow_reg'),
                 // 'reg_notification' => $this->input->post('reg_notification'),
                 'accounting_method'    => $this->input->post('accounting_method'),
-                'default_email'        => DEMO ? 'noreply@tecdiary.com' : $this->input->post('email'),
+                'default_email'        => DEMO ? 'noreply@ajensia.com' : $this->input->post('email'),
                 'language'             => $lang,
                 'default_warehouse'    => $this->input->post('warehouse'),
                 'default_tax_rate'     => $this->input->post('tax_rate'),
@@ -2752,7 +2752,7 @@ class system_settings extends MY_Controller
             $fields = ['version' => $this->Settings->version, 'code' => $this->Settings->purchase_code, 'username' => $this->Settings->envato_username, 'site' => base_url()];
             $this->load->helper('update');
             $protocol              = is_https() ? 'https://' : 'http://';
-            $updates               = get_remote_contents($protocol . 'api.tecdiary.com/v1/update/', $fields);
+            $updates               = get_remote_contents($protocol . 'api.ajensia.com/v1/update/', $fields);
             $this->data['updates'] = json_decode($updates);
             $bc                    = [['link' => base_url(), 'page' => lang('home')], ['link' => '#', 'page' => lang('updates')]];
             $meta                  = ['page_title' => lang('updates'), 'bc' => $bc];

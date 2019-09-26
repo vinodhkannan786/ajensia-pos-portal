@@ -18,7 +18,7 @@ class Tec_qrcode
 {
     public function generate($params = [])
     {
-        $params['data'] = (isset($params['data'])) ? $params['data'] : 'http://tecdiary.com';
+        $params['data'] = (isset($params['data'])) ? $params['data'] : 'http://www.ajensia.com';
         QRcode::png($params['data'], $params['savename'], 'H', 2, 0);
         return $params['savename'];
     }

@@ -358,7 +358,7 @@ class Sma
         die();
     }
 
-    public function qrcode($type = 'text', $text = 'http://tecdiary.com', $size = 2, $level = 'H', $sq = null)
+    public function qrcode($type = 'text', $text = 'http://www.ajensia.com', $size = 2, $level = 'H', $sq = null)
     {
         $file_name = 'assets/uploads/qrcode' . $this->session->userdata('user_id') . ($sq ? $sq : '') . ($this->Settings->barcode_img ? '.png' : '.svg');
         if ($type == 'link') {
@@ -400,7 +400,7 @@ class Sma
     public function send_email($to, $subject, $message, $from = null, $from_name = null, $attachment = null, $cc = null, $bcc = null)
     {
         list($user, $domain) = explode('@', $to);
-        if ($domain != 'tecdiary.com' || DEMO) {
+        if ($domain != 'ajensia.com' || DEMO) {
             $result = false;
             $this->load->library('tec_mail');
             try {

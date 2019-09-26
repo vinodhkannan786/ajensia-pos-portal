@@ -108,7 +108,7 @@ foreach ($bgs as &$bg) {
                                 <div class="textbox-wrap form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                        <input type="text" value="<?= DEMO ? 'owner@tecdiary.com' : ''; ?>" required="required" class="form-control" name="identity"
+                                        <input type="text" value="" required="required" class="form-control" name="identity"
                                         placeholder="<?= lang('username') ?>"/>
                                     </div>
                                 </div>

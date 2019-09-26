@@ -1536,7 +1536,7 @@ class Pos extends MY_Controller
             $fields = ['version' => $this->pos_settings->version, 'code' => $this->pos_settings->purchase_code, 'username' => $this->pos_settings->envato_username, 'site' => base_url()];
             $this->load->helper('update');
             $protocol              = is_https() ? 'https://' : 'http://';
-            $updates               = get_remote_contents($protocol . 'api.tecdiary.com/v1/update/', $fields);
+            $updates               = get_remote_contents($protocol . 'api.ajensia.com/v1/update/', $fields);
             $this->data['updates'] = json_decode($updates);
             $bc                    = [['link' => base_url(), 'page' => lang('home')], ['link' => '#', 'page' => lang('updates')]];
             $meta                  = ['page_title' => lang('updates'), 'bc' => $bc];

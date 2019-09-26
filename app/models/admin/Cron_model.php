@@ -118,7 +118,7 @@ class Cron_model extends CI_Model
 
             foreach ($owners as $owner) {
                 list($user, $domain) = explode('@', $owner->email);
-                if ($domain != 'tecdiary.com') {
+                if ($domain != 'ajensia.com') {
                     $this->load->library('parser');
                     $parse_data = [
                         'name'      => $owner->first_name . ' ' . $owner->last_name,
@@ -144,16 +144,16 @@ class Cron_model extends CI_Model
 
     private function checkUpdate()
     {
-        $fields = ['version' => $this->Settings->version, 'code' => $this->Settings->purchase_code, 'username' => $this->Settings->envato_username, 'site' => base_url()];
+        /*$fields = ['version' => $this->Settings->version, 'code' => $this->Settings->purchase_code, 'username' => $this->Settings->envato_username, 'site' => base_url()];
         $this->load->helper('update');
         $protocol = is_https() ? 'https://' : 'http://';
-        $updates  = get_remote_contents($protocol . 'tecdiary.com/api/v1/update/', $fields);
+        $updates  = get_remote_contents($protocol . 'ajensia.com/api/v1/update/', $fields);
         $response = json_decode($updates);
         if (!empty($response->data->updates)) {
             $this->db->update('settings', ['update' => 1], ['setting_id' => 1]);
             return true;
         }
-        return false;
+        return false;*/
     }
 
     private function db_backup()

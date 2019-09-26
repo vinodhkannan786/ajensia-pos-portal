@@ -431,7 +431,7 @@ $config['csrf_token_name']   = 'token';
 $config['csrf_cookie_name']  = 'token_cookie';
 $config['csrf_expire']       = 7200;
 $config['csrf_regenerate']   = false;
-$config['csrf_exclude_uris'] = ['payments/paypalipn', 'payments/skrillipn', 'welcome/image_upload'];
+$config['csrf_exclude_uris'] = ['payments/paypalipn', 'payments/skrillipn', 'welcome/image_upload', 'api/v1/dukaan/subscribe'];
 
 /*
 |--------------------------------------------------------------------------

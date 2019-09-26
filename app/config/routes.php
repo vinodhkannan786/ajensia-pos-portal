@@ -6,9 +6,9 @@ $route['404_override'] = 'notify/error_404';
 $route['translate_uri_dashes'] = TRUE;
 
 // Shop routes
-$route['shop'] = 'main';
-$route['shop/search'] = 'shop/shop/search';
-$route['shop/products'] = 'shop/shop/products';
+//j$route['shop'] = 'main';
+//$route['shop/search'] = 'shop/shop/search';
+//$route['shop/products'] = 'shop/shop/products';
 $route['product/(:any)'] = 'shop/shop/product/$1';
 $route['category/(:any)'] = 'shop/shop/products/$1';
 $route['brand/(:any)'] = 'shop/shop/products/0/0/$1';
@@ -23,9 +23,9 @@ $route['cart/(:any)'] = 'shop/cart_ajax/$1';
 $route['cart/(:any)/(:any)'] = 'shop/cart_ajax/$1/$2';
 
 // Misc routes
-$route['shop/(:any)'] = 'shop/shop/$1';
-$route['shop/(:any)/(:any)'] = 'shop/shop/$1/$2';
-$route['shop/(:any)/(:any)/(:any)'] = 'shop/shop/$1/$2/$3';
+//$route['shop/(:any)'] = 'shop/shop/$1';
+//$route['shop/(:any)/(:any)'] = 'shop/shop/$1/$2';
+//$route['shop/(:any)/(:any)/(:any)'] = 'shop/shop/$1/$2/$3';
 
 // Auth routes
 $route['login'] = 'main/login';

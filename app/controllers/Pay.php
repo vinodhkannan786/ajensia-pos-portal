@@ -43,7 +43,7 @@ class Pay extends MY_Shop_Controller
                     'cancel_return' => urldecode(site_url('pay/pipn')),
                     'amount'        => (($inv->grand_total - $inv->paid) + $paypal_fee),
                     'image_url'     => base_url() . 'assets/uploads/logos/' . $this->Settings->logo,
-                    'business'      => (DEMO ? 'saleem-facilitator@tecdiary.com' : $paypal->account_email),
+                    'business'      => (DEMO ? 'support@ajensia.com' : $paypal->account_email),
                     'custom'        => $inv->reference_no . '__' . ($inv->grand_total - $inv->paid) . '__' . $paypal_fee,
                 ];
                 $query = http_build_query($data, null, '&');
@@ -92,7 +92,7 @@ class Pay extends MY_Shop_Controller
                     $invoice_no  = $_POST['item_number'];
                     $reference   = $_POST['item_name'];
 
-                    if (($_POST['payment_status'] == 'Completed' || $_POST['payment_status'] == 'Processed' || $_POST['payment_status'] == 'Pending') && ($_POST['business'] == $paypal->account_email || $_POST['business'] == 'saleem-facilitator@tecdiary.com')) {
+                    if (($_POST['payment_status'] == 'Completed' || $_POST['payment_status'] == 'Processed' || $_POST['payment_status'] == 'Pending') && ($_POST['business'] == $paypal->account_email || $_POST['business'] == 'support@ajensia.com')) {
                         if ($_POST['mc_currency'] == $this->Settings->default_currency) {
                             $amount = $_POST['mc_gross'];
                         } else {

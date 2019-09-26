@@ -567,6 +567,8 @@ class Sales extends MY_Controller
         }
 
         if ($this->form_validation->run() == true && $this->sales_model->addPayment($payment, $customer_id)) {
+			$this->load->library('pushNotification');
+			$this->pushnotification->newSale($sale->id);
             if ($sale->shop) {
                 $this->load->library('sms');
                 $this->sms->paymentReceived($sale->id, $payment['reference_no'], $payment['amount']);

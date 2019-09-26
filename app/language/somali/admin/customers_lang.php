@@ -1,0 +1,51 @@
+<?php
+
+#
+#Mon Sep 23 22:15:53 AEST 2019
+$lang['delete_customers']='Tirtir Macaamiisha';
+$lang['customer_updated']='Macaamiil si guul leh ayaa loo cusbooneysiiyay';
+$lang['user_added']='Isticmaalaha macaamiisha ayaa si guul leh loogu daray ';
+$lang['list_deposits']='Liiska Debaajiga';
+$lang['check_customer_email']='Fadlan hubso emaylka macaamiisha';
+$lang['list_addresses']='Cinwaannada Cinwaanka';
+$lang['line_no']='Nambarka Nambarka';
+$lang['are_required']='loo baahan yahay';
+$lang['deposit_added']='Deposit ayaa si guul leh lagu daray';
+$lang['add_address']='Cinwaanka ku dar';
+$lang['import_by_csv']='Ku dar / Cusboonaysii Macaamiisha CSV';
+$lang['user_deleted']='Isticmaalaha macaamiisha ayaa si guul leh loo tirtiray ';
+$lang['line2']='Khadka Cinwaanka 2';
+$lang['customer_x_deleted']='Ficilku wuu dhacay\! Macaamiilkan lama tirtiri karo';
+$lang['line1']='Khadka Cinwaanka 1';
+$lang['customer_already_exist']='Macaamiil hore ayuu u jiray isla cinwaanka e-maylka';
+$lang['address_updated']='Cinwaanka si guul leh ayaa loo cusbooneysiiyay';
+$lang['customers_deleted']='Macaamiisha si guul leh ayaa loo tirtiray ';
+$lang['data_x_customers']='Xogta CSV kama tirsana macmiil kasta';
+$lang['paid_by']='Waxaa bixiyay';
+$lang['no_customer_selected']='Ma jiro macmiil la xushay. Fadlan xulo ugu yaraan hal macmiil. ';
+$lang['customers_x_deleted_have_sales']='Macaamiisha qaarkood lama tirtiri karo maadaama ay leeyihiin iibin ';
+$lang['deposit_updated']='Deposit si guul ah ayaa loo cusbooneysiiyay';
+$lang['address_added']='Cinwaanka si guul leh ayaa loogu daray';
+$lang['delete_address']='Tirtir cinwaanka';
+$lang['add_deposit']='Kudar Deposit';
+$lang['edit_address']='Cinwaanka Tafatirka';
+$lang['customer_added']='Macaamiil si guul leh ayuu ku daray';
+$lang['deposit_deleted']='Deposit si guul leh ayaa loo tirtiray';
+$lang['deposit_note']='Ogeysiiska Deposit';
+$lang['edit_deposit']='Deposit Dejinta';
+$lang['edit_profile']='Tafatirka Adeegga';
+$lang['delete_deposit']='Delete Deposit';
+$lang['customer_deleted']='Macaamiil si guul leh ayuu tirtiray ';
+$lang['customers_added']='Macaamiisha si guul leh ayaa loogu daray';
+$lang['edit_customer']='Tafatiraha Macaamiisha';
+$lang['add_customer']='Ku dar Macaamiisha';
+$lang['addresses']='Cinwaannada';
+$lang['delete_customer']='Tirtir Macaamiisha';
+$lang['delete_user']='Tirtir isticmaale';
+$lang['address_deleted']='Cinwaanka si guul leh ayaa loo tirtiray';
+$lang['first_6_required']='Lixda Koowaad (6) sadar waxaa loo baahan yahay kuwa kalena waa ikhtiyaari.';
+$lang['deposits_subheading']='Fadlan u adeegso jadwalka hoose si aad ugu socoto ama u raadiso natiijooyinka'.
+$lang['pw_not_same']='Xaqiiji erayga sirta ah kuma eka eraygaaga sirta ah';
+$lang['deposits']='Deebaajiyo';
+$lang['csv_update_tip']='Nidaamku wuxuu hubin doonaa haddii emaylka uu ku leeyahay macmiil kasta markaa wuu cusboonaysiin doonaa in macaamilku haddii kale ku dari doono macmiil cusub. Haddii cinwaanka emaylka uu hore u jiray bililiqo / adeeg-bixiye waa la iska indhatiri doonaa. ';
+$lang['customer_x_deleted_have_sales']='Ficilku wuu dhacay\! macmiilku iib buu leeyahay ';

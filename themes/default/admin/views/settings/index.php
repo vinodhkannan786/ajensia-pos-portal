@@ -110,6 +110,7 @@ $ps = ['0' => lang('disable'), '1' => lang('enable')];
                                     <?= lang('language', 'language'); ?>
                                     <?php
                                     $lang = [
+                                        'somali'               => 'Somali',
                                         'arabic'               => 'Arabic',
                                         'english'              => 'English',
                                         'german'               => 'German',
