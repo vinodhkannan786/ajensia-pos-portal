@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://ajensia.c2btech.com/';
+$config['base_url'] = 'http://http://ajensia.c2btech.com/';
 
 /*
 |--------------------------------------------------------------------------
@@ -211,7 +211,7 @@ $config['directory_trigger']    = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
