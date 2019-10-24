@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://http://ajensia.c2btech.com/';
+$config['base_url'] = 'http://ajensia.c2btech.com/';
 
 /*
 |--------------------------------------------------------------------------
