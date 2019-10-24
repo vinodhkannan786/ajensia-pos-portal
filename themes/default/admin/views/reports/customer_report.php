@@ -288,7 +288,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td colspan="8" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+                                        <td colspan="8" class=""><?= lang('loading_data_from_server') ?></td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="dtFilter">
@@ -494,7 +494,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="7" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+                                    <td colspan="7" class=""><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
                             <tfoot class="dtFilter">
@@ -542,7 +542,14 @@
                 "bSearchable": false,
                 "mRender": pqFormat
             }, {"mRender": currencyFormat}, {"mRender": row_status}],
-        });
+        }).fnSetFilteringDelay().dtFilter([
+            {column_number: 0, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
+            {column_number: 1, filter_default_label: "[<?=lang('reference_no');?>]", filter_type: "text", data: []},
+            {column_number: 2, filter_default_label: "[<?=lang('biller');?>]", filter_type: "text", data: []},
+            {column_number: 3, filter_default_label: "[<?=lang('customer');?>]", filter_type: "text", data: []},
+            {column_number: 5, filter_default_label: "[<?=lang('grand_total');?>]", filter_type: "text", data: []},
+            {column_number: 6, filter_default_label: "[<?=lang('status');?>]", filter_type: "text", data: []},
+        ], "footer");
     });
     </script>
     <div class="box">
@@ -591,7 +598,7 @@
                             <tbody>
                                 <tr>
                                     <td colspan="7"
-                                    class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+                                    class=""><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
                             <tfoot class="dtFilter">
@@ -681,7 +688,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+                                    <td colspan="5" class=""><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
                             <tfoot>
