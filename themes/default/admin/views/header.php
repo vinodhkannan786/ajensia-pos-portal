@@ -467,12 +467,12 @@
                                             <span class="text"> <?= lang('deliveries'); ?></span>
                                         </a>
                                     </li>
-                                    <li id="sales_gift_cards">
+                                    <!-- <li id="sales_gift_cards">
                                         <a class="submenu" href="<?= admin_url('sales/gift_cards'); ?>">
                                             <i class="fa fa-gift"></i>
                                             <span class="text"> <?= lang('list_gift_cards'); ?></span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
 
@@ -1062,7 +1062,7 @@
                                     </li>
                                     <?php
                             }
-                            if ($GP['sales-gift_cards']) {
+                           /* if ($GP['sales-gift_cards']) {
                                 ?>
                                     <li id="sales_gift_cards">
                                         <a class="submenu" href="<?= admin_url('sales/gift_cards'); ?>">
@@ -1070,7 +1070,7 @@
                                         </a>
                                     </li>
                                     <?php
-                            } ?>
+                            }*/ ?>
                                 </ul>
                             </li>
                             <?php
