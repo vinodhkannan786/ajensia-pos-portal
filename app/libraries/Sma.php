@@ -120,7 +120,7 @@ class Sma
             $date     = explode(' ', $ldate);
             $jsd      = $this->dateFormats['js_sdate'];
             $inv_date = $date[0];
-            $time     = $date[1];
+            $time     = isset($date[1]) ? $date[1] : '';
             if ($jsd == 'dd-mm-yyyy' || $jsd == 'dd/mm/yyyy' || $jsd == 'dd.mm.yyyy') {
                 $date = substr($inv_date, -4) . '-' . substr($inv_date, 3, 2) . '-' . substr($inv_date, 0, 2) . ' ' . $time;
             } elseif ($jsd == 'mm-dd-yyyy' || $jsd == 'mm/dd/yyyy' || $jsd == 'mm.dd.yyyy') {
