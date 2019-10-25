@@ -341,7 +341,7 @@
                 "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
                 "iDisplayLength": <?= $Settings->rows_per_page ?>,
                 'bProcessing': true, 'bServerSide': true,
-                'sAjaxSource': '<?= admin_url('reports/getPaymentsReport/?v=1' . $p) ?>',
+                'sAjaxSource': '<?= admin_url('reports/getPaymentsReport?v=1' . $p) ?>',
                 'fnServerData': function (sSource, aoData, fnCallback) {
                     aoData.push({
                         "name": "<?= $this->security->get_csrf_token_name() ?>",
@@ -524,7 +524,7 @@
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
-            'sAjaxSource': '<?= admin_url('reports/getQuotesReport/?v=1&customer=' . $user_id) ?>',
+            'sAjaxSource': '<?= admin_url('reports/getQuotesReport?v=1&customer=' . $user_id) ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
                     "name": "<?= $this->security->get_csrf_token_name() ?>",

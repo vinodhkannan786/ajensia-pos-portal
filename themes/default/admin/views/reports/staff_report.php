@@ -242,7 +242,7 @@
                     "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
                     "iDisplayLength": <?= $Settings->rows_per_page ?>,
                     'bProcessing': true, 'bServerSide': true,
-                    'sAjaxSource': '<?= admin_url('reports/getSalesReport/?v=1' . $v) ?>',
+                    'sAjaxSource': '<?= admin_url('reports/getSalesReport?v=1' . $v) ?>',
                     'fnServerData': function (sSource, aoData, fnCallback) {
                         aoData.push({
                             "name": "<?= $this->security->get_csrf_token_name() ?>",
@@ -470,7 +470,7 @@
                     "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
                     "iDisplayLength": <?= $Settings->rows_per_page ?>,
                     'bProcessing': true, 'bServerSide': true,
-                    'sAjaxSource': '<?= admin_url('reports/getPurchasesReport/?v=1' . $v1) ?>',
+                    'sAjaxSource': '<?= admin_url('reports/getPurchasesReport?v=1' . $v1) ?>',
                     'fnServerData': function (sSource, aoData, fnCallback) {
                         aoData.push({ "name": "<?= $this->security->get_csrf_token_name() ?>", "value": "<?= $this->security->get_csrf_hash() ?>" });
                         $.ajax({ 'dataType': 'json', 'type': 'POST', 'url': sSource, 'data': aoData, 'success': fnCallback });
@@ -675,7 +675,7 @@
                     "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
                     "iDisplayLength": <?= $Settings->rows_per_page ?>,
                     'bProcessing': true, 'bServerSide': true,
-                    'sAjaxSource': '<?= admin_url('reports/getPaymentsReport/?v=1' . $p) ?>',
+                    'sAjaxSource': '<?= admin_url('reports/getPaymentsReport?v=1' . $p) ?>',
                     'fnServerData': function (sSource, aoData, fnCallback) {
                         aoData.push({
                             "name": "<?= $this->security->get_csrf_token_name() ?>",
@@ -927,7 +927,7 @@
                                         "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
                                         "iDisplayLength": <?= $Settings->rows_per_page ?>,
                                         'bProcessing': true, 'bServerSide': true,
-                                        'sAjaxSource': '<?= admin_url('reports/getUserLogins/' . $user_id . '/?v=1' . $l); ?>',
+                                        'sAjaxSource': '<?= admin_url('reports/getUserLogins/' . $user_id . '?v=1' . $l); ?>',
                                         'fnServerData': function (sSource, aoData, fnCallback) {
                                             aoData.push({
                                                 "name": "<?= $this->security->get_csrf_token_name(); ?>",
