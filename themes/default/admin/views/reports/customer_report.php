@@ -288,7 +288,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td colspan="8" class=""><?= lang('loading_data_from_server') ?></td>
+                                        <td colspan="8" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="dtFilter">
@@ -494,7 +494,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="7" class=""><?= lang('loading_data_from_server') ?></td>
+                                    <td colspan="7" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
                             <tfoot class="dtFilter">
@@ -688,7 +688,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="5" class=""><?= lang('loading_data_from_server') ?></td>
+                                    <td colspan="5" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
                             <tfoot>
