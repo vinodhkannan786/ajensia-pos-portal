@@ -710,44 +710,5 @@
 
 <script type="text/javascript" src="<?= $assets ?>js/html2canvas.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function () {
-    $('#pdf').click(function (event) {
-        event.preventDefault();
-        window.location.href = "<?=admin_url('reports/getSalesReport/pdf/?v=1' . $v)?>";
-        return false;
-    });
-    $('#xls').click(function (event) {
-        event.preventDefault();
-        window.location.href = "<?=admin_url('reports/getSalesReport/0/xls/?v=1' . $v)?>";
-        return false;
-    });
-    $('#image').click(function (event) {
-        event.preventDefault();
-        html2canvas($('.sales-table'), {
-            onrendered: function (canvas) {
-                openImg(canvas.toDataURL());
-            }
-        });
-        return false;
-    });
-    $('#pdf1').click(function (event) {
-        event.preventDefault();
-        window.location.href = "<?=admin_url('reports/getPaymentsReport/pdf/?v=1' . $p)?>";
-        return false;
-    });
-    $('#xls1').click(function (event) {
-        event.preventDefault();
-        window.location.href = "<?=admin_url('reports/getPaymentsReport/0/xls/?v=1' . $p)?>";
-        return false;
-    });
-    $('#image1').click(function (event) {
-        event.preventDefault();
-        html2canvas($('.payments-table'), {
-            onrendered: function (canvas) {
-                openImg(canvas.toDataURL());
-            }
-        });
-        return false;
-    });
-});
+
 </script>
