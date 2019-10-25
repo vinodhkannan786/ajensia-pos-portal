@@ -537,11 +537,7 @@
                     'data': aoData,
                     'success': fnCallback
                 });
-            },
-            "aoColumns": [{"mRender": fld}, null, null, null, {
-                "bSearchable": false,
-                "mRender": pqFormat
-            }, {"mRender": currencyFormat}, {"mRender": row_status}],
+            }
         }).fnSetFilteringDelay().dtFilter([
             {column_number: 0, filter_default_label: "[<?=lang('date');?> (yyyy-mm-dd)]", filter_type: "text", data: []},
             {column_number: 1, filter_default_label: "[<?=lang('reference_no');?>]", filter_type: "text", data: []},
@@ -598,21 +594,10 @@
                             <tbody>
                                 <tr>
                                     <td colspan="7"
-                                    class=""><?= lang('loading_data_from_server') ?></td>
+                                    class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
                                 </tr>
                             </tbody>
-                            <tfoot class="dtFilter">
-                                <tr class="active">
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th><?= lang('product_qty'); ?></th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-                        </table>
+                       </table>
                     </div>
                 </div>
             </div>
