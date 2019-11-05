@@ -1,6 +1,5 @@
 4-11-2019 ganapathi
 
-ALTER TABLE sma_users ADD merchant_code varchar(150) NULL AFTER allow_discount;
 
 CREATE TABLE `tenants` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,

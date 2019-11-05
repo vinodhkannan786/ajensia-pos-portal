@@ -433,6 +433,38 @@ class Auth extends MY_Controller
         if ($this->form_validation->run() == true) {
             $remember = (bool)$this->input->post('remember');
 
+        //db login 
+        $identity      = $this->input->post('identity');
+        $mercent_email = explode("@",$identity);
+        $get_mercent   = explode('.', $mercent_email[1]);
+        $db_name       = $get_mercent[0];
+
+        $this->dynamicDB = array(
+            'dsn'          => '',
+            'hostname'     => 'localhost',
+            'username'     => 'root',
+            'password'     => 'root123',
+            'database'     => $db_name,
+            'dbdriver'     => 'mysqli',
+            'dbprefix'     => 'sma_',
+            'pconnect'     => false,
+            'db_debug'     => false,
+            'cache_on'     => false,
+            'cachedir'     => '',
+            'char_set'     => 'utf8',
+            'dbcollat'     => 'utf8_general_ci',
+            'swap_pre'     => '',
+            'encrypt'      => false,
+            'compress'     => false,
+            'stricton'     => false,
+            'failover'     => [],
+            'save_queries' => false,
+          );
+    
+        log_message('error', $db_name);
+        
+       $this->db = $this->load->database($this->dynamicDB, TRUE);
+
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 if ($this->Settings->mmode) {
                     if (!$this->ion_auth->in_group('owner')) {
@@ -450,6 +482,19 @@ class Auth extends MY_Controller
                 }
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
                 $referrer = ($this->session->userdata('requested_page') && $this->session->userdata('requested_page') != 'admin') ? $this->session->userdata('requested_page') : 'welcome';
+
+                $get_tenant = $this->db->select('*')
+                        ->where('merchant_code',$db_name)
+                        ->limit(1)
+                        ->get('tenants');
+                $tenant = $get_tenant->row();
+
+                $this->session->set_userdata('tenant_database', $tenant->database_connection_name);
+                $this->session->set_userdata('tenant_merchant_code', $tenant->merchant_code);
+
+                log_message('error', 'tenant database_connection_url '.$tenant->database_connection_name);
+                log_message('error', 'tenant merchant_code '.$tenant->merchant_code);
+
                 admin_redirect($referrer);
             } else {
                 $this->session->set_flashdata('error', $this->ion_auth->errors());
