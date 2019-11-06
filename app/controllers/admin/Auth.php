@@ -12,6 +12,8 @@ class Auth extends MY_Controller
         $this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
         $this->load->admin_model('auth_model');
         $this->load->library('ion_auth');
+        $this->load->database();
+
     }
 
     public function _get_csrf_nonce()
@@ -433,37 +435,37 @@ class Auth extends MY_Controller
         if ($this->form_validation->run() == true) {
             $remember = (bool)$this->input->post('remember');
 
-        //db login 
+        //tenant db login 
         $identity      = $this->input->post('identity');
         $mercent_email = explode("@",$identity);
         $get_mercent   = explode('.', $mercent_email[1]);
         $db_name       = $get_mercent[0];
 
         $this->dynamicDB = array(
-            'dsn'          => '',
-            'hostname'     => 'localhost',
-            'username'     => 'root',
-            'password'     => 'root123',
+            'dsn'          => $this->db->dsn,
+            'hostname'     => $this->db->hostname,
+            'username'     => $this->db->username,
+            'password'     => $this->db->password,
             'database'     => $db_name,
-            'dbdriver'     => 'mysqli',
-            'dbprefix'     => 'sma_',
-            'pconnect'     => false,
-            'db_debug'     => false,
-            'cache_on'     => false,
-            'cachedir'     => '',
-            'char_set'     => 'utf8',
-            'dbcollat'     => 'utf8_general_ci',
-            'swap_pre'     => '',
-            'encrypt'      => false,
-            'compress'     => false,
-            'stricton'     => false,
-            'failover'     => [],
-            'save_queries' => false,
+            'dbdriver'     => $this->db->dbdriver,
+            'dbprefix'     => $this->db->dbprefix,
+            'pconnect'     => $this->db->pconnect,
+            'db_debug'     => $this->db->db_debug,
+            'cache_on'     => $this->db->cache_on,
+            'cachedir'     => $this->db->cachedir,
+            'char_set'     => $this->db->char_set,
+            'dbcollat'     => $this->db->dbcollat,
+            'swap_pre'     => $this->db->swap_pre,
+            'encrypt'      => $this->db->encrypt,
+            'compress'     => $this->db->compress,
+            'stricton'     => $this->db->stricton,
+            'failover'     => $this->db->failover,
+            'save_queries' => $this->db->save_queries,
           );
     
         log_message('error', $db_name);
         
-       $this->db = $this->load->database($this->dynamicDB, TRUE);
+        $this->db = $this->load->database($this->dynamicDB, TRUE);
 
             if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
                 if ($this->Settings->mmode) {

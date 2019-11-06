@@ -29,7 +29,14 @@ class MY_Controller extends CI_Controller
         // $this->theme = $this->Settings->theme . '/admin/views/';
         $this->theme = $tenant_theme . '/admin/views/';
         if (is_dir(VIEWPATH . $this->Settings->theme . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'assets' . DIRECTORY_SEPARATOR)) {
-            $this->data['assets'] = base_url() . 'themes/' . $tenant_theme . '/admin/assets/';
+
+            if($this->session->userdata('tenant_merchant_code')){
+                log_message('error', 'tenant session active');
+                $this->data['assets'] = base_url() . 'themes/' . $tenant_theme . '/admin/assets/';
+            }else{
+                $this->data['assets'] = base_url() . 'themes/default/admin/assets/';
+                log_message('error', 'tenant session empty');
+            }
             // $this->data['assets'] = base_url() . 'themes/' . $this->Settings->theme . '/admin/assets/';
         } else {
             $this->data['assets'] = base_url() . 'themes/default/admin/assets/';
