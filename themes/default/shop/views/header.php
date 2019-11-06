@@ -14,7 +14,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?= $page_title; ?>" />
     <meta property="og:description" content="<?= $page_desc; ?>" />
-    <meta property="og:image" content="<?= isset($product) && !empty($product) ? base_url('assets/uploads/' . $product->image) : base_url('assets/uploads/logos/' . $shop_settings->logo); ?>" />
+    <meta property="og:image" content="<?= isset($product) && !empty($product) ? base_url('assets/uploads/' . $product->image) : base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $shop_settings->logo); ?>" />
 </head>
 <body>
     <section id="wrapper" class="blue">
@@ -44,7 +44,7 @@
                                 <?= $loggedIn && $Staff ? '<li class="hidden-xs"><a href="' . admin_url() . '"><i class="fa fa-dashboard"></i> ' . lang('admin_area') . '</a></li>' : ''; ?>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <img src="<?= base_url('assets/images/' . $Settings->user_language . '.png'); ?>" alt="">
+                                    <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $Settings->user_language . '.png'); ?>" alt="">
                                     <span class="hidden-xs">&nbsp;&nbsp;<?= ucwords($Settings->user_language); ?></span>
                                  </a>
                                  <ul class="dropdown-menu dropdown-menu-right">
@@ -56,7 +56,7 @@
                                             ?>
                                     <li>
                                         <a href="<?= site_url('main/language/' . $entry); ?>">
-                                            <img src="<?= base_url('assets/images/' . $entry . '.png'); ?>" class="language-img">
+                                            <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $entry . '.png'); ?>" class="language-img">
                                             &nbsp;&nbsp;<?= ucwords($entry); ?>
                                         </a>
                                     </li>
@@ -132,7 +132,7 @@
 
                         <div class="col-sm-4 col-md-3 logo">
                             <a href="<?= site_url(); ?>">
-                                <img alt="<?= $shop_settings->shop_name; ?>" src="<?= base_url('assets/uploads/logos/' . $shop_settings->logo); ?>" class="img-responsive" />
+                                <img alt="<?= $shop_settings->shop_name; ?>" src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $shop_settings->logo); ?>" class="img-responsive" />
                             </a>
                         </div>
 

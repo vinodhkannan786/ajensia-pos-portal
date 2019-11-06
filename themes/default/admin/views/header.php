@@ -77,7 +77,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown">
                         <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
-                            <img alt="" src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded">
+                            <img alt="" src="<?= $this->session->userdata('avatar') ? base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $this->session->userdata('gender') . '.png'); ?>" class="mini_avatar img-rounded">
 
                             <div class="user">
                                 <span><?= lang('welcome') ?> <?= $this->session->userdata('username'); ?></span>
@@ -222,7 +222,7 @@
                     <li class="dropdown hidden-xs">
                         <a class="btn tip" title="<?= lang('language') ?>" data-placement="bottom" data-toggle="dropdown"
                            href="#">
-                            <img src="<?= base_url('assets/images/' . $Settings->user_language . '.png'); ?>" alt="">
+                            <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $Settings->user_language . '.png'); ?>" alt="">
                         </a>
                         <ul class="dropdown-menu pull-right">
                             <?php $scanned_lang_dir = array_map(function ($path) {
@@ -232,7 +232,7 @@
                                 ?>
                                 <li>
                                     <a href="<?= admin_url('welcome/language/' . $entry); ?>">
-                                        <img src="<?= base_url('assets/images/' . $entry . '.png'); ?>" class="language-img">
+                                        <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $entry . '.png'); ?>" class="language-img">
                                         &nbsp;&nbsp;<?= ucwords($entry); ?>
                                     </a>
                                 </li>

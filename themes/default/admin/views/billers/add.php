@@ -136,7 +136,7 @@
     $(document).ready(function () {
         $('#biller_logo').change(function (event) {
             var biller_logo = $(this).val();
-            $('#logo-con').html('<img src="<?=base_url('assets/uploads/logos')?>/' + biller_logo + '" alt="">');
+            $('#logo-con').html('<img src="<?=base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos')?>/' + biller_logo + '" alt="">');
         });
     });
 </script>

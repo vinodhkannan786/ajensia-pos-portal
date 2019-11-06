@@ -14,7 +14,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?= $page_title; ?>" />
     <meta property="og:description" content="<?= $page_desc; ?>" />
-    <meta property="og:image" content="<?= isset($product) && !empty($product) ? base_url('assets/uploads/' . $product->image) : base_url('assets/uploads/logos/' . $shop_settings->logo); ?>" />
+    <meta property="og:image" content="<?= isset($product) && !empty($product) ? base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $product->image) : base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $shop_settings->logo); ?>" />
 </head>
 <body>
     <section id="wrapper" class="blue">
@@ -132,7 +132,7 @@
 
                         <div class="col-sm-4 col-md-3 logo">
                             <a href="<?= site_url(); ?>">
-                                <img alt="<?= $shop_settings->shop_name; ?>" src="<?= base_url('assets/uploads/logos/' . $shop_settings->logo); ?>" class="img-responsive" />
+                                <img alt="<?= $shop_settings->shop_name; ?>" src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $shop_settings->logo); ?>" class="img-responsive" />
                             </a>
                         </div>
 

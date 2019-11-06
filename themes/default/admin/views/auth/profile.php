@@ -7,7 +7,7 @@
                 <div style="max-width:200px; margin: 0 auto;">
                     <?=
                     $user->avatar ? '<img alt="" src="' . base_url() . 'assets/uploads/avatars/thumbs/' . $user->avatar . '" class="avatar">' :
-                        '<img alt="" src="' . base_url() . 'assets/images/' . $user->gender . '.png" class="avatar">';
+                        '<img alt="" src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/images/' . $user->gender . '.png" class="avatar">';
                     ?>
                 </div>
                 <h4><?= lang('login_email'); ?></h4>
@@ -278,7 +278,7 @@
                                         <?php if ($user->avatar) {
                                                         ?>
                                             <img alt=""
-                                                 src="<?= base_url() ?>assets/uploads/avatars/<?= $user->avatar ?>"
+                                                 src="<?= base_url() ?>assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/<?= $user->avatar ?>"
                                                  class="profile-image img-thumbnail">
                                             <a href="#" class="btn btn-danger btn-xs po"
                                                style="position: absolute; top: 0;" title="<?= lang('delete_avatar') ?>"

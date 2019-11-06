@@ -231,8 +231,8 @@ class Auth extends MY_Controller
             die("<script type='text/javascript'>setTimeout(function(){ window.top.location.href = '" . $_SERVER['HTTP_REFERER'] . "'; }, 0);</script>");
             redirect($_SERVER['HTTP_REFERER']);
         } else {
-            unlink('assets/uploads/avatars/' . $avatar);
-            unlink('assets/uploads/avatars/thumbs/' . $avatar);
+            unlink('assets/'.$this->session->userdata('tenant_merchant_code').'/avatars/' . $avatar);
+            unlink('assets/'.$this->session->userdata('tenant_merchant_code').'/avatars/thumbs/' . $avatar);
             if ($id == $this->session->userdata('user_id')) {
                 $this->session->unset_userdata('avatar');
             }
@@ -882,7 +882,7 @@ class Auth extends MY_Controller
             if ($_FILES['avatar']['size'] > 0) {
                 $this->load->library('upload');
 
-                $config['upload_path']   = 'assets/uploads/avatars';
+                $config['upload_path']   = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars';
                 $config['allowed_types'] = 'gif|jpg|png';
                 //$config['max_size'] = '500';
                 $config['max_width']    = $this->Settings->iwidth;
@@ -904,8 +904,8 @@ class Auth extends MY_Controller
                 $this->load->helper('file');
                 $this->load->library('image_lib');
                 $config['image_library']  = 'gd2';
-                $config['source_image']   = 'assets/uploads/avatars/' . $photo;
-                $config['new_image']      = 'assets/uploads/avatars/thumbs/' . $photo;
+                $config['source_image']   = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/' . $photo;
+                $config['new_image']      = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/thumbs/' . $photo;
                 $config['maintain_ratio'] = true;
                 $config['width']          = 150;
                 $config['height']         = 150;
@@ -923,8 +923,8 @@ class Auth extends MY_Controller
         }
 
         if ($this->form_validation->run() == true && $this->auth_model->updateAvatar($id, $photo)) {
-            unlink('assets/uploads/avatars/' . $user->avatar);
-            unlink('assets/uploads/avatars/thumbs/' . $user->avatar);
+            unlink('assets/'.$this->session->userdata('tenant_merchant_code').'/avatars/' . $user->avatar);
+            unlink('assets/'.$this->session->userdata('tenant_merchant_code').'/avatars/thumbs/' . $user->avatar);
             $this->session->set_userdata('avatar', $photo);
             $this->session->set_flashdata('message', lang('avatar_updated'));
             admin_redirect('auth/profile/' . $id);

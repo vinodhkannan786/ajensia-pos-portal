@@ -26,7 +26,7 @@
 
                 <div class="col-md-6">
                     <div id="logo-con" class="text-center"><img
-                            src="<?= base_url('assets/uploads/logos/' . $biller->logo) ?>" alt=""></div>
+                            src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo) ?>" alt=""></div>
                 </div>
             </div>
             <div class="row">

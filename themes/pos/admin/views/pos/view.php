@@ -52,7 +52,7 @@
             </div>
             <div id="receipt-data">
                 <div class="text-center">
-                    <?= !empty($biller->logo) ? '<img src="' . base_url('assets/uploads/logos/' . $biller->logo) . '" alt="">' : ''; ?>
+                    <?= !empty($biller->logo) ? '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo) . '" alt="">' : ''; ?>
                     <h3 style="text-transform:uppercase;"><?=$biller->company && $biller->company != '-' ? $biller->company : $biller->name;?></h3>
                     <?php
                     echo '<p>' . $biller->address . ' ' . $biller->city . ' ' . $biller->postal_code . ' ' . $biller->state . ' ' . $biller->country .

@@ -19,7 +19,7 @@
                     <tr>
                         <td style="text-align:center;">
                         <h2>
-                        <img src="<?= base_url('assets/uploads/logos/' . $biller->logo); ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
+                        <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo); ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
                          </h2>
                          </td>
                     </tr>

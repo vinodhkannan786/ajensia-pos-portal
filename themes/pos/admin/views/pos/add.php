@@ -51,7 +51,7 @@
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown">
                         <a class="btn account dropdown-toggle" data-toggle="dropdown" href="#">
-                            <img alt="" src="<?=$this->session->userdata('avatar') ? base_url() . 'assets/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : $assets . 'images/' . $this->session->userdata('gender') . '.png';?>" class="mini_avatar img-rounded">
+                            <img alt="" src="<?=$this->session->userdata('avatar') ? base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/thumbs/' . $this->session->userdata('avatar') : $assets . 'images/' . $this->session->userdata('gender') . '.png';?>" class="mini_avatar img-rounded">
 
                             <div class="user">
                                 <span><?=lang('welcome')?>! <?=$this->session->userdata('username');?></span>
@@ -472,7 +472,7 @@
         <?php
             // for ($i = 1; $i <= 40; $i++) {
             foreach ($brands as $brand) {
-                echo '<button id="brand-' . $brand->id . "\" type=\"button\" value='" . $brand->id . "' class=\"btn-prni brand\" ><img src=\"assets/uploads/thumbs/" . ($brand->image ? $brand->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $brand->name . '</span></button>';
+                echo '<button id="brand-' . $brand->id . "\" type=\"button\" value='" . $brand->id . "' class=\"btn-prni brand\" ><img src=\"assets/'".$this->session->userdata('tenant_merchant_code')."'/uploads/thumbs/" . ($brand->image ? $brand->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $brand->name . '</span></button>';
             }
             // }
         ?>
@@ -484,7 +484,7 @@
         <?php
             //for ($i = 1; $i <= 40; $i++) {
             foreach ($categories as $category) {
-                echo '<button id="category-' . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni category\" ><img src=\"assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $category->name . '</span></button>';
+                echo '<button id="category-' . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni category\" ><img src=\"assets/'".$this->session->userdata('tenant_merchant_code')."'/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $category->name . '</span></button>';
             }
             //}
         ?>
@@ -496,7 +496,7 @@
         <?php
             if (!empty($subcategories)) {
                 foreach ($subcategories as $category) {
-                    echo '<button id="subcategory-' . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni subcategory\" ><img src=\"assets/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $category->name . '</span></button>';
+                    echo '<button id="subcategory-' . $category->id . "\" type=\"button\" value='" . $category->id . "' class=\"btn-prni subcategory\" ><img src=\"assets/'".$this->session->userdata('tenant_merchant_code')."'/uploads/thumbs/" . ($category->image ? $category->image : 'no_image.png') . "\" class='img-rounded img-thumbnail' /><span>" . $category->name . '</span></button>';
                 }
             }
         ?>

@@ -81,7 +81,7 @@ class Payments extends MY_Controller
                                     'company'          => $customer->company,
                                     'site_link'        => base_url(),
                                     'site_name'        => $this->Settings->site_name,
-                                    'logo'             => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                                    'logo'             => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                                 ];
                                 $temp_path = is_dir('./themes/' . $this->Settings->theme . '/admin/views/email_templates/');
                                 $theme     = $temp_path ? $this->theme : 'default';
@@ -150,7 +150,7 @@ class Payments extends MY_Controller
                         'company'          => $customer->company,
                         'site_link'        => base_url(),
                         'site_name'        => $this->Settings->site_name,
-                        'logo'             => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                        'logo'             => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                     ];
                     $temp_path = is_dir('./themes/' . $this->Settings->theme . '/admin/views/email_templates/');
                     $theme     = $temp_path ? $this->theme : 'default';

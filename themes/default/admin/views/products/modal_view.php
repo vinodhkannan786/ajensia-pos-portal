@@ -14,14 +14,14 @@
 
             <div class="row">
                 <div class="col-xs-5">
-                    <img id="pr-image" src="<?= base_url() ?>assets/uploads/<?= $product->image ?>"
+                    <img id="pr-image" src="<?= base_url() ?>assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/<?= $product->image ?>"
                     alt="<?= $product->name ?>" class="img-responsive img-thumbnail"/>
 
                     <div id="multiimages" class="padding10">
                         <?php if (!empty($images)) {
-    echo '<a class="img-thumbnail change_img" href="' . base_url() . 'assets/uploads/' . $product->image . '" style="margin-right:5px;"><img class="img-responsive" src="' . base_url() . 'assets/uploads/thumbs/' . $product->image . '" alt="' . $product->image . '" style="width:' . $Settings->twidth . 'px; height:' . $Settings->theight . 'px;" /></a>';
+    echo '<a class="img-thumbnail change_img" href="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $product->image . '" style="margin-right:5px;"><img class="img-responsive" src="' . base_url() . 'assets/uploads/thumbs/' . $product->image . '" alt="' . $product->image . '" style="width:' . $Settings->twidth . 'px; height:' . $Settings->theight . 'px;" /></a>';
     foreach ($images as $ph) {
-        echo '<div class="gallery-image"><a class="img-thumbnail change_img" href="' . base_url() . 'assets/uploads/' . $ph->photo . '" style="margin-right:5px;"><img class="img-responsive" src="' . base_url() . 'assets/uploads/thumbs/' . $ph->photo . '" alt="' . $ph->photo . '" style="width:' . $Settings->twidth . 'px; height:' . $Settings->theight . 'px;" /></a>';
+        echo '<div class="gallery-image"><a class="img-thumbnail change_img" href="' . base_url() . 'assets'.$this->session->userdata('tenant_merchant_code').'//uploads/' . $ph->photo . '" style="margin-right:5px;"><img class="img-responsive" src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/' . $ph->photo . '" alt="' . $ph->photo . '" style="width:' . $Settings->twidth . 'px; height:' . $Settings->theight . 'px;" /></a>';
         if ($Owner || $Admin || $GP['products-edit']) {
             echo '<a href="#" class="delimg" data-item-id="' . $ph->id . '"><i class="fa fa-times"></i></a>';
         }

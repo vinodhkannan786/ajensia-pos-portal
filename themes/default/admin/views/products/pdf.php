@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-12">
         <?php
-        $path   = base_url() . 'assets/uploads/logos/' . $Settings->logo;
+        $path   = base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo;
         $type   = pathinfo($path, PATHINFO_EXTENSION);
         $data   = file_get_contents($path);
         $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
@@ -36,7 +36,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <?php if ($product->image != 'no_image.png') {
-                $path   = base_url() . 'assets/uploads/' . $product->image;
+                $path   = base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $product->image;
                 $type   = pathinfo($path, PATHINFO_EXTENSION);
                 $data   = file_get_contents($path);
                 $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data); ?>
@@ -260,7 +260,7 @@
         <?php
         if (!empty($images)) {
             foreach ($images as $ph) {
-                echo '<img class="img-responsive" src="' . base_url() . 'assets/uploads/' . $ph->photo . '" alt="' . $ph->photo . '" style="width:' . $Settings->iwidth . 'px; height:' . $Settings->iheight . 'px;" />';
+                echo '<img class="img-responsive" src="' . base_url() . 'assets/uploads/'.$this->session->userdata('tenant_merchant_code').'/' . $ph->photo . '" alt="' . $ph->photo . '" style="width:' . $Settings->iwidth . 'px; height:' . $Settings->iheight . 'px;" />';
             }
         }
         ?>

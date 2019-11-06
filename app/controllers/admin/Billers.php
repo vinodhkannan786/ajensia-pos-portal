@@ -226,7 +226,7 @@ class Billers extends MY_Controller
     public function getLogoList()
     {
         $this->load->helper('directory');
-        $dirname = 'assets/uploads/logos';
+        $dirname = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos';
         $ext     = ['jpg', 'png', 'jpeg', 'gif'];
         $files   = [];
         if ($handle = opendir($dirname)) {

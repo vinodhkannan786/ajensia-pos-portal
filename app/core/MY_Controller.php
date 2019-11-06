@@ -32,8 +32,10 @@ class MY_Controller extends CI_Controller
 
             if($this->session->userdata('tenant_merchant_code')){
                 log_message('error', 'tenant session active');
+                $this->data['merchant_code'] = $this->session->userdata('tenant_merchant_code');
                 $this->data['assets'] = base_url() . 'themes/' . $tenant_theme . '/admin/assets/';
             }else{
+                $this->data['merchant_code'] = '';
                 $this->data['assets'] = base_url() . 'themes/default/admin/assets/';
                 log_message('error', 'tenant session empty');
             }

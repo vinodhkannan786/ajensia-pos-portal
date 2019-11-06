@@ -126,7 +126,7 @@ class Cron_model extends CI_Model
                         'msg'       => $msg_with_yesterday_report,
                         'site_link' => base_url(),
                         'site_name' => $this->Settings->site_name,
-                        'logo'      => '<img src="' . base_url('assets/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
+                        'logo'      => '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
                     ];
                     $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/cron.html');
                     $message = $this->parser->parse_string($msg, $parse_data);

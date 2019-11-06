@@ -48,7 +48,7 @@
             <div class="col-lg-12">
 
                 <div class="print-only col-xs-12">
-                    <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
+                    <img src="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo; ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
                 </div>
                 <div class="well well-sm">
                     <div class="col-xs-4 border-right">

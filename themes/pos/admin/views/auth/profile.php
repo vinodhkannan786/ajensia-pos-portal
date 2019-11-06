@@ -278,7 +278,7 @@
                                         <?php if ($user->avatar) {
                                                         ?>
                                             <img alt=""
-                                                 src="<?= base_url() ?>assets/uploads/avatars/<?= $user->avatar ?>"
+                                                 src="<?= base_url() ?>assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/avatars/<?= $user->avatar ?>"
                                                  class="profile-image img-thumbnail">
                                             <a href="#" class="btn btn-danger btn-xs po"
                                                style="position: absolute; top: 0;" title="<?= lang('delete_avatar') ?>"

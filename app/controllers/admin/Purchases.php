@@ -19,8 +19,8 @@ class Purchases extends MY_Controller
         $this->load->library('form_validation');
         $this->load->admin_model('purchases_model');
         $this->digital_upload_path = 'files/';
-        $this->upload_path         = 'assets/uploads/';
-        $this->thumbs_path         = 'assets/uploads/thumbs/';
+        $this->upload_path         = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/';
+        $this->thumbs_path         = 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/';
         $this->image_types         = 'gif|jpg|jpeg|png|tif';
         $this->digital_file_types  = 'zip|psd|ai|rar|pdf|doc|docx|xls|xlsx|ppt|pptx|gif|jpg|jpeg|png|tif|txt';
         $this->allowed_file_size   = '1024';
@@ -951,7 +951,7 @@ class Purchases extends MY_Controller
                 'company'          => $supplier->company,
                 'site_link'        => base_url(),
                 'site_name'        => $this->Settings->site_name,
-                'logo'             => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                'logo'             => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
             ];
             $msg        = $this->input->post('note');
             $message    = $this->parser->parse_string($msg, $parse_data);
@@ -1029,7 +1029,7 @@ class Purchases extends MY_Controller
             'msg'        => $html,
             'site_link'  => base_url(),
             'site_name'  => $this->Settings->site_name,
-            'logo'       => '<img src="' . base_url('assets/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
+            'logo'       => '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
         ];
         $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/email_con.html');
         $message = $this->parser->parse_string($msg, $parse_data);

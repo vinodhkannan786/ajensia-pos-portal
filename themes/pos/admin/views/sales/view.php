@@ -88,7 +88,7 @@
         echo '</p></div>';
     } ?>
                 <div class="print-only col-xs-12">
-                    <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
+                    <img src="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo; ?>" alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
                 </div>
                 <div class="well well-sm">
 
@@ -527,7 +527,7 @@
                                     <input type="hidden" name="item_name" value="<?= $inv->reference_no; ?>">
                                     <input type="hidden" name="item_number" value="<?= $inv->id; ?>">
                                     <input type="hidden" name="image_url"
-                                           value="<?= base_url() . 'assets/uploads/logos/' . $Settings->logo; ?>">
+                                           value="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo; ?>">
                                     <input type="hidden" name="amount"
                                            value="<?= ($inv->grand_total - $inv->paid) + $paypal_fee; ?>">
                                     <input type="hidden" name="no_shipping" value="1">
@@ -578,7 +578,7 @@
                                     <input type="hidden" name="detail1_text"
                                            value="Payment for the sale invoice <?= $inv->reference_no . ': ' . $inv->grand_total . '(+ fee: ' . $skrill_fee . ') = ' . $this->sma->formatMoney($inv->grand_total + $skrill_fee); ?>">
                                     <input type="hidden" name="logo_url"
-                                           value="<?= base_url() . 'assets/uploads/logos/' . $Settings->logo; ?>">
+                                           value="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo; ?>">
                                     <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block"><i
                                             class="fa fa-money"></i> <?= lang('pay_by_skrill') ?></button>
                                 </form>

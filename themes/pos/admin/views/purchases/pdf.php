@@ -16,7 +16,7 @@
 
             <?php
             if ($logo) {
-                $path   = base_url() . 'assets/uploads/logos/' . $Settings->logo;
+                $path   = base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo;
                 $type   = pathinfo($path, PATHINFO_EXTENSION);
                 $data   = file_get_contents($path);
                 $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data); ?>

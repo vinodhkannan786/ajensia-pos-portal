@@ -25,7 +25,7 @@
             if (!empty($slide->link)) {
                 echo '<a href="' . $slide->link . '">';
             }
-            echo '<img src="' . base_url('assets/uploads/' . $slide->image) . '" alt="">';
+            echo '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $slide->image) . '" alt="">';
             if (!empty($slide->caption)) {
                 echo '<div class="carousel-caption">' . $slide->caption . '</div>';
             }
@@ -101,7 +101,7 @@
                                                         <span class="badge badge-right theme"><?= lang('promo'); ?></span>
                                                         <?php
                                                     } ?>
-                                                    <img src="<?= base_url('assets/uploads/' . $fp->image); ?>" alt="">
+                                                    <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $fp->image); ?>" alt="">
                                                     <?php if (!$shop_settings->hide_price) {
                                                         ?>
                                                     <div class="image_overlay"></div>

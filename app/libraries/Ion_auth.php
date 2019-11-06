@@ -59,7 +59,7 @@ class Ion_auth
                         'reset_password_link' => anchor('reset_password/' . $user->forgotten_password_code, lang('reset_password')),
                         'site_link'           => base_url(),
                         'site_name'           => $this->Settings->site_name,
-                        'logo'                => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                        'logo'                => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                     ];
                     $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/forgot_password.html');
                     $message = $this->parser->parse_string($msg, $parse_data);
@@ -143,7 +143,7 @@ class Ion_auth
                     'password'    => $password,
                     'site_link'   => base_url(),
                     'site_name'   => $this->Settings->site_name,
-                    'logo'        => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                    'logo'        => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                 ];
                 $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/new_password.html');
                 $message = $this->parser->parse_string($msg, $parse_data);
@@ -263,7 +263,7 @@ class Ion_auth
                         'site_name'   => $this->Settings->site_name,
                         'email'       => $email,
                         'password'    => $password,
-                        'logo'        => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                        'logo'        => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                     ];
 
                     $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/credentials.html');
@@ -322,7 +322,7 @@ class Ion_auth
                     'site_name'       => $this->Settings->site_name,
                     'email'           => $email,
                     'activation_link' => anchor('activate/' . $data['id'] . '/' . $data['activation'], lang('email_activate_link')),
-                    'logo'            => '<img src="' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
+                    'logo'            => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '" alt="' . $this->Settings->site_name . '"/>',
                 ];
 
                 $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/activate_email.html');

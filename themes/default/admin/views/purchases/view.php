@@ -59,7 +59,7 @@
     } ?>
                 <div class="clearfix"></div>
                 <div class="print-only col-xs-12">
-                    <img src="<?= base_url() . 'assets/uploads/logos/' . $Settings->logo; ?>"
+                    <img src="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo; ?>"
                          alt="<?= $Settings->site_name; ?>">
                 </div>
                 <div class="well well-sm">

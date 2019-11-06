@@ -22,7 +22,7 @@
                                         <tr class="product">
                                             <td class="col-xs-1">
                                             <a href="#<?= $item->id; ?>">
-                                            <img src="<?= base_url('assets/uploads/thumbs/' . $item->image); ?>" alt="" class="img-responsive">
+                                            <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/' . $item->image); ?>" alt="" class="img-responsive">
                                             </a>
                                             </td>
                                             <td class="col-xs-7"><?= '<a href="#">' . $item->name . '</a><br>' . $item->details; ?></td>

@@ -34,7 +34,7 @@
                                             <span class="badge badge-right theme"><?= lang('promo'); ?></span>
                                             <?php
                                         } ?>
-                                        <img src="<?= base_url('assets/uploads/' . $fp->image); ?>" alt="">
+                                        <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $fp->image); ?>" alt="">
                                         <?php if (!$shop_settings->hide_price) {
                                             ?>
                                         <div class="image_overlay"></div>

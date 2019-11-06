@@ -564,7 +564,7 @@ class Quotes extends MY_Controller
                 'company'          => $customer->company,
                 'site_link'        => base_url(),
                 'site_name'        => $this->Settings->site_name,
-                'logo'             => '<img src="' . base_url() . 'assets/uploads/logos/' . $biller->logo . '" alt="' . ($biller->company && $biller->company != '-' ? $biller->company : $biller->name) . '"/>',
+                'logo'             => '<img src="' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo . '" alt="' . ($biller->company && $biller->company != '-' ? $biller->company : $biller->name) . '"/>',
             ];
             $msg        = $this->input->post('note');
             $message    = $this->parser->parse_string($msg, $parse_data);

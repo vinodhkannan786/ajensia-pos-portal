@@ -183,7 +183,7 @@ $(document).ready(function ($) {
   $('.rrssb-buttons').rrssb({
     title: '<?= $product->code . ' - ' . $product->name; ?>',
     url: '<?= site_url('product/' . $product->slug); ?>',
-    image: '<?= base_url('assets/uploads/' . $product->image); ?>',
+    image: '<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $product->image); ?>',
     description: '<?= $page_desc; ?>',
     // emailSubject: '',
     // emailBody: '',

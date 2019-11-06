@@ -62,7 +62,7 @@
                     <img src="<?=$assets;?>images/card2.png" alt="" class="card_img">
                     <div class="card-content">
                         <div class="middle">
-                            <?= '<img src="' . base_url('assets/uploads/logos/' . $Settings->logo2) . '" alt="' . $Settings->site_name . '" />'; ?>
+                            <?= '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $Settings->logo2) . '" alt="' . $Settings->site_name . '" />'; ?>
                         </div>
                     </div>
                     <div class="clearfix"></div>

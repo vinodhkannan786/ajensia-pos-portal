@@ -143,7 +143,7 @@
                                             }
                                         }
                                         if ($item['image']) {
-                                            echo '<span class="product_image"><img src="' . base_url('assets/uploads/thumbs/' . $item['image']) . '" alt="" /></span>';
+                                            echo '<span class="product_image"><img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/' . $item['image']) . '" alt="" /></span>';
                                         }
                                         if ($item['site']) {
                                             echo '<span class="barcode_site">' . $item['site'] . '</span>';

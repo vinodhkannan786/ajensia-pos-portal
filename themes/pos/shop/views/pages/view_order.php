@@ -16,7 +16,7 @@
                             <div class="panel-body mprint">
 
                                 <div class="text-center biller-header print" style="margin-bottom:20px;">
-                                    <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>"
+                                    <img src="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo; ?>"
                                     alt="<?= $biller->company                         && $biller->company != '-' ? $biller->company : $biller->name; ?>">
                                     <h2 style="margin-top:10px;"><?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?></h2>
                                     <?= $biller->company ? '' : 'Attn: ' . $biller->name ?>
@@ -370,10 +370,10 @@
                                     }
                                     $btn_code = '<div id="payment_buttons" class="text-center margin010">';
                                     if ($paypal->active == '1' && $inv->grand_total != '0.00') {
-                                        $btn_code .= '<a href="' . site_url('pay/paypal/' . $inv->id) . '"><img src="' . base_url('assets/images/btn-paypal.png') . '" alt="Pay by PayPal"></a> ';
+                                        $btn_code .= '<a href="' . site_url('pay/paypal/' . $inv->id) . '"><img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/btn-paypal.png') . '" alt="Pay by PayPal"></a> ';
                                     }
                                     if ($skrill->active == '1' && $inv->grand_total != '0.00') {
-                                        $btn_code .= ' <a href="' . site_url('pay/skrill/' . $inv->id) . '"><img src="' . base_url('assets/images/btn-skrill.png') . '" alt="Pay by Skrill"></a>';
+                                        $btn_code .= ' <a href="' . site_url('pay/skrill/' . $inv->id) . '"><img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/images/btn-skrill.png') . '" alt="Pay by Skrill"></a>';
                                     }
                                     $btn_code .= '<div class="clearfix"></div></div>';
                                     echo $btn_code;

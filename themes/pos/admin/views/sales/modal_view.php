@@ -11,7 +11,7 @@
             <?php if ($logo) {
     ?>
                 <div class="text-center" style="margin-bottom:20px;">
-                    <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>"
+                    <img src="<?= base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $biller->logo; ?>"
                          alt="<?= $biller->company && $biller->company != '-' ? $biller->company : $biller->name; ?>">
                 </div>
             <?php

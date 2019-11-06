@@ -23,13 +23,13 @@
                                                 <div class="carousel-inner cont-slider">
                                                     <div class="item active">
                                                         <a href="#" data-toggle="modal" data-target="#lightbox">
-                                                            <img src="<?= base_url() ?>assets/uploads/<?= $product->image ?>" alt="<?= $product->name ?>" class="img-responsive img-thumbnail"/>
+                                                            <img src="<?= base_url() ?>assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/<?= $product->image ?>" alt="<?= $product->name ?>" class="img-responsive img-thumbnail"/>
                                                         </a>
                                                     </div>
                                                     <?php
                                                     if (!empty($images)) {
                                                         foreach ($images as $ph) {
-                                                            echo '<div class="item"><a href="#" data-toggle="modal" data-target="#lightbox"><img class="img-responsive img-thumbnail" src="' . base_url('assets/uploads/' . $ph->photo) . '" alt="' . $ph->photo . '" /></a></div>';
+                                                            echo '<div class="item"><a href="#" data-toggle="modal" data-target="#lightbox"><img class="img-responsive img-thumbnail" src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $ph->photo) . '" alt="' . $ph->photo . '" /></a></div>';
                                                         }
                                                     }
                                                     ?>
@@ -37,13 +37,13 @@
 
                                                 <ol class="carousel-indicators">
                                                     <li class="active" data-slide-to="0" data-target="#photo-carousel">
-                                                        <img class="img-thumbnail" alt="" src="<?= base_url() ?>assets/uploads/thumbs/<?= $product->image ?>">
+                                                        <img class="img-thumbnail" alt="" src="<?= base_url() ?>assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/<?= $product->image ?>">
                                                     </li>
                                                     <?php
                                                     $r = 1;
                                                     if (!empty($images)) {
                                                         foreach ($images as $ph) {
-                                                            echo '<li class="" data-slide-to="' . $r . '" data-target="#photo-carousel"><img class="img-thumbnail" alt="" src="' . base_url('assets/uploads/thumbs/' . $ph->photo) . '"></li>';
+                                                            echo '<li class="" data-slide-to="' . $r . '" data-target="#photo-carousel"><img class="img-thumbnail" alt="" src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/thumbs/' . $ph->photo) . '"></li>';
                                                             $r++;
                                                         }
                                                     }
@@ -294,7 +294,7 @@
                                     <span class="badge badge-right theme"><?= lang('promo'); ?></span>
                                     <?php
                                 } ?>
-                                <img src="<?= base_url('assets/uploads/' . $fp->image); ?>" alt="">
+                                <img src="<?= base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/' . $fp->image); ?>" alt="">
                                 <?php if (!$shop_settings->hide_price) {
                                     ?>
                                 <div class="image_overlay"></div>

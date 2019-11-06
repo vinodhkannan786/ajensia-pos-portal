@@ -42,7 +42,7 @@ class Pay extends MY_Shop_Controller
                     'currency_code' => $this->default_currency->code,
                     'cancel_return' => urldecode(site_url('pay/pipn')),
                     'amount'        => (($inv->grand_total - $inv->paid) + $paypal_fee),
-                    'image_url'     => base_url() . 'assets/uploads/logos/' . $this->Settings->logo,
+                    'image_url'     => base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo,
                     'business'      => (DEMO ? 'support@ajensia.com' : $paypal->account_email),
                     'custom'        => $inv->reference_no . '__' . ($inv->grand_total - $inv->paid) . '__' . $paypal_fee,
                 ];
@@ -121,7 +121,7 @@ class Pay extends MY_Shop_Controller
                                     'company'          => $customer->company,
                                     'site_link'        => base_url(),
                                     'site_name'        => $this->Settings->site_name,
-                                    'logo'             => '<img src="' . base_url('assets/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
+                                    'logo'             => '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
                                 ];
 
                                 $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/payment.html');
@@ -200,7 +200,7 @@ class Pay extends MY_Shop_Controller
                             'company'          => $customer->company,
                             'site_link'        => base_url(),
                             'site_name'        => $this->Settings->site_name,
-                            'logo'             => '<img src="' . base_url('assets/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
+                            'logo'             => '<img src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo) . '" alt="' . $this->Settings->site_name . '"/>',
                         ];
 
                         $msg     = file_get_contents('./themes/' . $this->Settings->theme . '/admin/views/email_templates/payment.html');
@@ -247,7 +247,7 @@ class Pay extends MY_Shop_Controller
                 } else {
                     $skrill_fee = $skrill->fixed_charges + ($inv->grand_total * $skrill->extra_charges_other / 100);
                 }
-                redirect('https://www.moneybookers.com/app/payment.pl?method=get&pay_to_email=' . $skrill->account_email . '&language=EN&merchant_fields=item_name,item_number&item_name=' . $inv->reference_no . '&item_number=' . $inv->id . '&logo_url=' . base_url() . 'assets/uploads/logos/' . $this->Settings->logo . '&amount=' . (($inv->grand_total - $inv->paid) + $skrill_fee) . '&return_url=' . shop_url('orders/' . $inv->id) . '&cancel_url=' . site_url('/') . '&detail1_description=' . $inv->reference_no . '&detail1_text=Payment for the sale invoice ' . $inv->reference_no . ': ' . $inv->grand_total . '(+ fee: ' . $skrill_fee . ') = ' . $this->sma->formatMoney($inv->grand_total + $skrill_fee) . '&currency=' . $this->default_currency->code . '&status_url=' . site_url('pay/sipn'));
+                redirect('https://www.moneybookers.com/app/payment.pl?method=get&pay_to_email=' . $skrill->account_email . '&language=EN&merchant_fields=item_name,item_number&item_name=' . $inv->reference_no . '&item_number=' . $inv->id . '&logo_url=' . base_url() . 'assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $this->Settings->logo . '&amount=' . (($inv->grand_total - $inv->paid) + $skrill_fee) . '&return_url=' . shop_url('orders/' . $inv->id) . '&cancel_url=' . site_url('/') . '&detail1_description=' . $inv->reference_no . '&detail1_text=Payment for the sale invoice ' . $inv->reference_no . ': ' . $inv->grand_total . '(+ fee: ' . $skrill_fee . ') = ' . $this->sma->formatMoney($inv->grand_total + $skrill_fee) . '&currency=' . $this->default_currency->code . '&status_url=' . site_url('pay/sipn'));
             }
         }
         $this->session->set_flashdata('error', lang('sale_x_found'));

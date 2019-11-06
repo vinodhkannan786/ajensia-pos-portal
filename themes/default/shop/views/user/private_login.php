@@ -22,7 +22,7 @@
     <div class="container">
         <?php
         if ($shop_settings->logo) {
-            echo '<img alt="' . $shop_settings->shop_name . '" src="' . base_url('assets/uploads/logos/' . $shop_settings->logo) . '" style="margin-bottom:10px;max-width:100%;" />';
+            echo '<img alt="' . $shop_settings->shop_name . '" src="' . base_url('assets/'.$this->session->userdata('tenant_merchant_code').'/uploads/logos/' . $shop_settings->logo) . '" style="margin-bottom:10px;max-width:100%;" />';
         } else {
             echo '<h1 style="text-transform:uppercase;">' . $shop_settings->shop_name . '</h1>';
         }
