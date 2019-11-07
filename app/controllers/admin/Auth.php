@@ -441,29 +441,9 @@ class Auth extends MY_Controller
         $get_mercent   = explode('.', $mercent_email[1]);
         $db_name       = $get_mercent[0];
 
-        $this->dynamicDB = array(
-            'dsn'          => $this->db->dsn,
-            'hostname'     => $this->db->hostname,
-            'username'     => $this->db->username,
-            'password'     => $this->db->password,
-            'database'     => $db_name,
-            'dbdriver'     => $this->db->dbdriver,
-            'dbprefix'     => $this->db->dbprefix,
-            'pconnect'     => $this->db->pconnect,
-            'db_debug'     => $this->db->db_debug,
-            'cache_on'     => $this->db->cache_on,
-            'cachedir'     => $this->db->cachedir,
-            'char_set'     => $this->db->char_set,
-            'dbcollat'     => $this->db->dbcollat,
-            'swap_pre'     => $this->db->swap_pre,
-            'encrypt'      => $this->db->encrypt,
-            'compress'     => $this->db->compress,
-            'stricton'     => $this->db->stricton,
-            'failover'     => $this->db->failover,
-            'save_queries' => $this->db->save_queries,
-          );
-    
-        log_message('error', $db_name);
+        log_message('error', 'login check db : '.$db_name);
+        $this->dynamicDataBase($db_name);
+        log_message('error', 'login tenant db working : '.$db_name);
         
         $this->db = $this->load->database($this->dynamicDB, TRUE);
 

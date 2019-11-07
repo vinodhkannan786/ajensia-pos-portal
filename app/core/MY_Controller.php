@@ -48,6 +48,9 @@ class MY_Controller extends CI_Controller
         $this->loggedIn         = $this->sma->logged_in();
 
         if ($this->loggedIn) {
+            $db_name =  $this->session->userdata('tenant_database');
+            $this->dynamicDataBase($db_name);
+            log_message('error', 'active tenant database :'.$db_name);
             $this->default_currency         = $this->site->getCurrencyByCode($this->Settings->default_currency);
             $this->data['default_currency'] = $this->default_currency;
             $this->Owner                    = $this->sma->in_group('owner') ? true : null;
@@ -138,5 +141,34 @@ class MY_Controller extends CI_Controller
         $this->load->view($this->theme . 'header', $meta);
         $this->load->view($this->theme . $page, $data);
         $this->load->view($this->theme . 'footer');
+    }
+
+    public function dynamicDataBase($db_name)
+    {
+        $this->dynamicDB = array(
+                'dsn'          => $this->db->dsn,
+                'hostname'     => $this->db->hostname,
+                'username'     => $this->db->username,
+                'password'     => $this->db->password,
+                'database'     => $db_name,
+                'dbdriver'     => $this->db->dbdriver,
+                'dbprefix'     => $this->db->dbprefix,
+                'pconnect'     => $this->db->pconnect,
+                'db_debug'     => $this->db->db_debug,
+                'cache_on'     => $this->db->cache_on,
+                'cachedir'     => $this->db->cachedir,
+                'char_set'     => $this->db->char_set,
+                'dbcollat'     => $this->db->dbcollat,
+                'swap_pre'     => $this->db->swap_pre,
+                'encrypt'      => $this->db->encrypt,
+                'compress'     => $this->db->compress,
+                'stricton'     => $this->db->stricton,
+                'failover'     => $this->db->failover,
+                'save_queries' => $this->db->save_queries,
+          );
+    
+        log_message('error', 'dynamicBase database loading: '.$db_name);
+        
+        $this->db = $this->load->database($this->dynamicDB, TRUE);
     }
 }
