@@ -7,7 +7,7 @@
             "aLengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "<?= lang('all') ?>"]],
             "iDisplayLength": <?= $Settings->rows_per_page ?>,
             'bProcessing': true, 'bServerSide': true,
-            'sAjaxSource': '<?= admin_url('products/getadjustments/' . ($warehouse ? $warehouse->id : '')); ?>',
+            'sAjaxSource': '<?= admin_url('products/getadjustments' . ($warehouse ? $warehouse->id : '')); ?>',
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
                     "name": "<?= $this->security->get_csrf_token_name() ?>",
